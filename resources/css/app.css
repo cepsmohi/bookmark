@@ -1,0 +1,285 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background-color: #d4d4d4;
+    box-shadow: 0 0 1px #e0e0e000;
+}
+
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    transition: all 0.1s ease-out;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+input.inputcss ~ span.placeholder {
+    top: 8px;
+}
+
+.fly {
+    color: white;
+    background-color: #cacaca;
+    padding: 0px 1px;
+    font-size: 12px;
+    top: -18px;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+input.inputcss:valid ~ span.placeholder,
+input.inputcss:focus ~ span.placeholder,
+input.inputcss:not(:empty) ~ span.placeholder {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    color: white;
+    background-color: #cacaca;
+    padding: 0px 10px;
+    font-size: 10px;
+    top: -11px;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+    width: max-content;
+    animation: scroll var(--_animation-duration, 40s) var(--_animation-direction, forwards) linear infinite;
+}
+
+.scroller[data-animated="false"] .scroller__inner {
+    width: max-content;
+}
+
+.scroller[data-direction="right"] {
+    --_animation-direction: reverse;
+}
+
+.scroller[data-direction="left"] {
+    --_animation-direction: forwards;
+}
+
+.scroller[data-speed="fast"] {
+    --_animation-duration: 20s;
+}
+
+.scroller[data-speed="slow"] {
+    --_animation-duration: 60s;
+}
+
+@keyframes scroll {
+    to {
+        transform: translate(calc(-50% - 0.5rem));
+    }
+}
+
+@layer components {
+    .darktheme {
+        @apply text-theme-textlight dark:text-theme-textdark;
+    }
+
+    .darkthemetext {
+        @apply text-black dark:text-white;
+    }
+
+    .darkthemebg {
+        @apply darktheme bg-theme-bglight dark:bg-theme-bgdark;
+    }
+
+    .adt {
+        @apply absolute top-0 left-0 right-0 m-2 flex flex-row items-center justify-start gap-2;
+    }
+
+    .adtl {
+        @apply absolute top-0 left-0 m-2 flex flex-row items-center justify-start gap-2;
+    }
+
+    .adtr {
+        @apply absolute top-0 right-0 m-2 flex flex-row items-center justify-end gap-2;
+    }
+
+    .adb {
+        @apply absolute bottom-0 left-0 right-0 m-2 flex flex-row items-center justify-center gap-2;
+    }
+
+    .adbl {
+        @apply absolute bottom-0 left-0 m-2 flex flex-row items-center justify-start gap-2;
+    }
+
+    .adl {
+        @apply absolute top-0 bottom-0 left-0 m-2 flex flex-row items-center justify-start gap-2;
+    }
+
+    .adbr {
+        @apply absolute bottom-0 right-0 m-2 flex flex-row items-center justify-end gap-2;
+    }
+
+    .fcol {
+        @apply flex flex-col items-center justify-center;
+    }
+
+    .fcols {
+        @apply flex flex-col items-start justify-center;
+    }
+
+    .fcole {
+        @apply flex flex-col items-end justify-center;
+    }
+
+    .frow {
+        @apply flex flex-row items-center justify-center;
+    }
+
+    .frows {
+        @apply flex flex-row items-center justify-start;
+    }
+
+    .frowe {
+        @apply flex flex-row items-center justify-end;
+    }
+
+    .frowb {
+        @apply flex flex-row items-center justify-between;
+    }
+
+    .title {
+        @apply text-lg md:text-xl font-bold uppercase dark:text-black print:text-base;
+    }
+
+    .stitle {
+        @apply text-xs md:text-base drop-shadow uppercase font-bold print:text-base;
+    }
+
+    .menuitem {
+        @apply cursor-pointer px-2 py-1 hover:bg-gray-400 rounded-lg;
+    }
+
+    .activemenu {
+        @apply cursor-default hover:bg-gray-300 border-b-4 border-red-500 rounded-none;
+    }
+
+    .responsivegrid {
+        @apply grid grid-flow-row-dense grid-cols-1 items-center justify-items-center gap-4 p-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+    }
+
+    .menubar {
+        @apply frows w-full gap-2 border-b border-green-600 bg-gray-300 px-2;
+    }
+
+    .statusbar {
+        @apply frowe fixed bottom-0 w-full gap-2 border-t border-green-600 bg-green-200 px-2 text-xs shadow-inner;
+    }
+
+    .inputcss {
+        @apply w-full rounded-xl border border-gray-400 p-2 pl-12 shadow outline-none;
+    }
+
+    .inputcssline {
+        @apply w-full border border-gray-400 shadow outline-none;
+    }
+
+    .checkbox {
+        @apply h-5 w-5 cursor-pointer appearance-none rounded-full border border-green-400 p-2 checked:border-transparent checked:bg-green-400;
+    }
+
+    .selectedtxt {
+        @apply text-xl font-bold text-gray-100;
+    }
+
+    .selectebletxt {
+        @apply text-xl text-gray-400 hover:text-gray-100 cursor-pointer;
+    }
+
+    .menudiv {
+        @apply fcols absolute top-12 hidden w-40 gap-2 rounded-lg bg-gray-400 bg-opacity-70 p-2 shadow-2xl group-hover:flex;
+    }
+
+    .lbtn {
+        @apply text-blue-700 cursor-pointer hover:text-white drop-shadow;
+    }
+
+    .card {
+        @apply rounded-[30px] overflow-hidden relative drop-shadow-xl;
+    }
+
+    .sqrbtn {
+        @apply w-24 h-24 md:w-32 md:h-32 fcol gap-0 hover:text-white shadow rounded-2xl cursor-pointer;
+    }
+
+    .itemimage {
+        @apply h-36 w-36 p-2 rounded-full drop-shadow-xl;
+    }
+
+    .itemimagesmall {
+        @apply h-20 w-20 rounded-full drop-shadow-xl;
+    }
+
+    .itemimagetiny {
+        @apply h-12 w-12 rounded-full drop-shadow-xl;
+    }
+
+    .stocktxt {
+        @apply adtr frow -right-2 -top-2 h-6 w-6 rounded-full bg-green-800 p-1 text-xs font-bold text-white shadow-xl;
+    }
+
+    .ordertitle {
+        @apply frowb relative z-40 mx-auto mt-2 h-10 w-full max-w-3xl gap-6 rounded-xl bg-gray-400 px-2 text-white shadow;
+    }
+
+    .itemquantity {
+        @apply absolute -right-2 -top-2 flex h-8 w-8 flex-row items-center justify-center gap-2 rounded-full bg-red-500 text-lg text-white drop-shadow cursor-pointer;
+    }
+
+    .modalback {
+        @apply fcol gap-2 fixed inset-0 -top-24 z-50 w-full bg-gray-400 print:bg-white bg-opacity-90;
+    }
+
+    .modal {
+        @apply relative rounded-2xl bg-gray-50 p-4 shadow-2xl print:shadow-none min-w-300;
+    }
+
+    .modaltop {
+        @apply absolute top-4 rounded-2xl bg-gray-50 p-4 shadow-2xl print:shadow-none min-w-300;
+    }
+
+    .modalfull {
+        @apply absolute rounded-xl m-auto bg-gray-50 p-2 text-black;
+    }
+
+    .bodycss {
+        @apply relative m-auto min-h-screen bg-gray-50 p-2 text-black sm:px-6 md:px-12 lg:px-20 xl:px-32;
+    }
+
+    .printonly {
+        @apply hidden my-0 mx-auto font-bold text-black print:block text-xs;
+    }
+
+    .showandprint {
+        @apply font-bold print:inline-block print:bg-white print:px-0 print:text-xs print:text-black;
+    }
+
+    .alink {
+        @apply py-2 px-4 cursor-pointer whitespace-nowrap rounded-xl border-b border-transparent hover:rounded-none hover:text-gray-300 focus:outline focus:rounded-xl;
+    }
+}
