@@ -6,7 +6,6 @@
             icon="asset"
             title="Categories"
             width="w-12"
-            color="purple"
             round="rounded-xl"
         />
     </div>

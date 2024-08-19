@@ -1,4 +1,4 @@
-<div class="frows gap-4">
+<div class="frows flex-wrap gap-4">
     <x-deco.quickicon href="https://mail.google.com/" icon="70" alt="gmail"/>
     <x-deco.quickicon href="https://calendar.google.com/" icon="63" alt="calendar"/>
     <x-deco.quickicon href="https://www.google.com/maps" icon="73" alt="map"/>

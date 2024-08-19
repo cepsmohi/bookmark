@@ -6,7 +6,6 @@
             icon="back"
             title="Back"
             width="w-12"
-            color="red"
             round="rounded-xl"
         />
         <x-form.awire
@@ -15,7 +14,6 @@
             icon="plus"
             title="New Category"
             width="w-12"
-            color="green"
             round="rounded-xl"
         />
     </div>
