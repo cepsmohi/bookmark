@@ -17,9 +17,14 @@
             $countlinks = 0;
         @endphp
         @foreach($categories as $category)
-            <div class="fcols flex-wrap mb-4 w-full">
-                <div class="text-xl mt-4 font-black whitespace-nowrap uppercase">{{ $category->title }}</div>
-                <div class="fcols w-full">
+            <div x-data="{open: false}" class="fcols flex-wrap w-full">
+                <div
+                    @click="open = !open"
+                    class="text-xl mt-4 font-black whitespace-nowrap uppercase cursor-pointer"
+                >
+                    {{ $category->title }}
+                </div>
+                <div x-show="open" x-cloak class="fcols w-full">
                     @php
                         $countsubcategories += $category->subcategories->count();
                     @endphp
