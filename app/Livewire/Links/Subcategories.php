@@ -17,11 +17,15 @@ class Subcategories extends Component
     #[Rule('required|string')]
     public $title;
 
+    #[Rule('nullable|numeric')]
+    public $position;
+
     public function createSubcategory()
     {
         $this->validate();
         $this->category->subcategories()->create([
             'title' => $this->title,
+            'position' => $this->position
         ]);
         session()->flash('alert', 'Subcategory Created');
         return redirect(route('subcategories', $this->category));
@@ -30,6 +34,7 @@ class Subcategories extends Component
     {
         $this->newsubcategory = Subcategory::find($id);
         $this->title = $this->newsubcategory->title;
+        $this->position = $this->newsubcategory->position;
         $this->showEditForm = true;
     }
     public function updateSubcategory()
@@ -37,6 +42,7 @@ class Subcategories extends Component
         $this->validate();
         $this->newsubcategory->update([
             'title' => $this->title,
+            'position' => $this->position
         ]);
         session()->flash('alert', 'Subcategory Updated');
         return redirect(route('subcategories', $this->category));

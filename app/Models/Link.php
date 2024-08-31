@@ -11,7 +11,8 @@ class Link extends Model
     protected $fillable = [
         'subcategory_id',
         'title',
-        'href'
+        'href',
+        'position'
     ];
     public function subcategory(){
         return $this->belongsTo(Subcategory::class);
@@ -24,11 +25,12 @@ class Link extends Model
                 : asset('images/public/links/link.svg'))
             : asset('images/public/links/link.svg');
     }
-    public function updateLink($title, $href)
+    public function updateLink($title, $href, $position)
     {
         return $this->update([
             'title' => $title,
             'href' => $href,
+            'position' => $position
         ]);
     }
     public function updateImage($pic = null)

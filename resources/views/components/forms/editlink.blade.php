@@ -21,6 +21,12 @@
                         placeholder="href"
                         icon="link"
                     />
+                    <x-form.inputwire
+                        name="position"
+                        placeholder="Position"
+                        type="number"
+                        icon="position"
+                    />
                 </div>
                 <div class="w-40">
                     <x-form.uploadpic

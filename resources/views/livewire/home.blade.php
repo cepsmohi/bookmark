@@ -29,28 +29,36 @@
                         $countsubcategories += $category->subcategories->count();
                     @endphp
                     @foreach($category->subcategories as $subCategory)
-                        <div class="frows flex-wrap gap-1 border-b w-full">
-                            <div class="font-bold whitespace-nowrap uppercase">{{ $subCategory->title }}</div>
-                            <x-deco.icon icon="hline"/>
-                            @php
-                                $countlinks += $subCategory->links->count();
-                            @endphp
-                            @foreach($subCategory->links as $link)
-                                <a
-                                    class="whitespace-nowrap alink uppercase frows gap-2"
-                                    href="{!! $link->href !!}" target="_blank"
-                                >
-                                    <img
-                                        class="rounded-full shadow"
-                                        width="20"
-                                        height="20"
-                                        src="{{ asset('images/public/links/'.$link->id.'.jpg') }}"
-                                        onerror="this.src='images/public/links/link.svg'"
-                                        alt=""
-                                    />
-                                    <span class="text-xs">{{ $link->title }}</span>
-                                </a>
-                            @endforeach
+                        <div
+                            @class([
+                            'fcols md:frows gap-1 w-full',
+                            'bg-gray-200 bg-opacity-50' => $loop->even
+                            ])
+                        >
+                            <div class="w-full md:w-48 font-bold whitespace-nowrap uppercase truncate">
+                                {{ $subCategory->title }}
+                            </div>
+                            <div class="fcols md:frows flex-wrap gap-1 w-full">
+                                @php
+                                    $countlinks += $subCategory->links->count();
+                                @endphp
+                                @foreach($subCategory->links as $link)
+                                    <a
+                                        class="whitespace-nowrap alink uppercase frows gap-2"
+                                        href="{!! $link->href !!}" target="_blank"
+                                    >
+                                        <img
+                                            class="rounded-full shadow"
+                                            width="20"
+                                            height="20"
+                                            src="{{ asset('images/public/links/'.$link->id.'.jpg') }}"
+                                            onerror="this.src='images/public/links/link.svg'"
+                                            alt=""
+                                        />
+                                        <span class="text-xs">{{ $link->title }}</span>
+                                    </a>
+                                @endforeach
+                            </div>
                         </div>
                     @endforeach
                 </div>
