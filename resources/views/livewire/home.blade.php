@@ -65,15 +65,15 @@
             </div>
         @endforeach
     </div>
-    <div class="frows gap-1 uppercase">
+    <div class="frows gap-2 uppercase">
         <x-deco.icon icon="asset" />
-        {{ $countcategories }}
-        <x-deco.icon icon="hline" />
+        <div>{{ $countcategories }}</div>
+        <x-deco.icon icon="hline" width="w-7 dark:bg-transparent" />
         <x-deco.icon icon="itemwise" />
-        {{ $countsubcategories }}
-        <x-deco.icon icon="hline" />
+        <div>{{ $countsubcategories }}</div>
+        <x-deco.icon icon="hline" width="w-7 dark:bg-transparent" />
         <x-deco.icon icon="link" />
-        {{ $countlinks }}
+        <div>{{ $countlinks }}</div>
     </div>
     <x-app.offline />
 </div>
