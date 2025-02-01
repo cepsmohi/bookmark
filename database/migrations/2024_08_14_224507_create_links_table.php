@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('subcategory_id');
             $table->string('title');
             $table->string('href');
+            $table->integer('position')->nullable();
             $table->timestamps();
         });
     }

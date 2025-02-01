@@ -1,6 +1,6 @@
 <div class="text-base cursor-pointer print:hidden" title="{{ $title ?? '' }}">
     <div
-        class="frow {{ isset($color) ? cssbg($color) : '' }} {{ $round ?? 'rounded-full' }} print:hidden"
+        class="frow {{ isset($color) ? cssbg($color) : 'transparent' }} {{ $round ?? 'rounded-full' }} print:hidden"
         id="{{ $id ?? $wireclick . 'btn' }}"
         wire:click="{{ $wireclick }}"
         wire:loading.attr="disabled"

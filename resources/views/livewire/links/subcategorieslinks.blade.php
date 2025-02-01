@@ -6,7 +6,6 @@
             icon="back"
             title="Back"
             width="w-12"
-            color="red"
             round="rounded-xl"
         />
         <x-form.awire
@@ -15,7 +14,6 @@
             icon="plus"
             title="New Category"
             width="w-12"
-            color="green"
             round="rounded-xl"
         />
     </div>
@@ -31,6 +29,11 @@
                     class="whitespace-nowrap alink uppercase frows gap-2"
                     href="{!! $link->href !!}" target="_blank"
                 >
+                    <div class="w-6">
+                        @if($link->position)
+                            {{ $link->position }}
+                        @endif
+                    </div>
                     <img
                         class="rounded-full shadow"
                         width="40"

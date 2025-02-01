@@ -14,6 +14,12 @@
                 placeholder="Title"
                 icon="name"
             />
+            <x-form.inputwire
+                name="position"
+                placeholder="Position"
+                type="number"
+                icon="position"
+            />
             <x-form.awiretag
                 id="createbtn"
                 wireclick="createCategory"

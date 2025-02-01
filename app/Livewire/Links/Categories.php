@@ -15,11 +15,15 @@ class Categories extends Component
     #[Rule('required|string')]
     public $title;
 
+    #[Rule('nullable|numeric')]
+    public $position;
+
     public function createCategory()
     {
         $this->validate();
         Category::create([
             'title' => $this->title,
+            'position' => $this->position
         ]);
         session()->flash('alert', 'Category Created');
         return redirect(route('categories'));
@@ -28,6 +32,7 @@ class Categories extends Component
     {
         $this->newcategory = Category::find($id);
         $this->title = $this->newcategory->title;
+        $this->position = $this->newcategory->position;
         $this->showEditForm = true;
     }
     public function updateCategory()
@@ -35,6 +40,7 @@ class Categories extends Component
         $this->validate();
         $this->newcategory->update([
             'title' => $this->title,
+            'position' => $this->position
         ]);
         session()->flash('alert', 'Category Updated');
         return redirect(route('categories'));
@@ -48,7 +54,7 @@ class Categories extends Component
     public function render()
     {
         return view('livewire.links.categories', [
-            'categories' => Category::all()
+            'categories' => Category::orderBy('position')->get()
         ]);
     }
 }

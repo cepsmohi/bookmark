@@ -8,19 +8,21 @@ class Subcategory extends Model
 {
     protected $fillable = [
         'category_id',
-        'title'
+        'title',
+        'position'
     ];
     public function links(){
-        return $this->hasMany(Link::class);
+        return $this->hasMany(Link::class)->orderBy('position');
     }
     public function category(){
         return $this->belongsTo(Category::class);
     }
-    public function createLink($title, $href)
+    public function createLink($title, $href, $position)
     {
         return $this->links()->create([
             'title' => $title,
             'href' => $href,
+            'position' => $position,
         ]);
     }
 }

@@ -6,7 +6,6 @@
             icon="asset"
             title="Categories"
             width="w-12"
-            color="purple"
             round="rounded-xl"
         />
     </div>
@@ -18,50 +17,63 @@
             $countlinks = 0;
         @endphp
         @foreach($categories as $category)
-            <div class="fcols flex-wrap mb-4 w-full">
-                <div class="text-xl mt-4 font-black whitespace-nowrap uppercase">{{ $category->title }}</div>
-                <div class="fcols w-full">
+            <div x-data="{open: false}" class="fcols flex-wrap w-full">
+                <div
+                    @click="open = !open"
+                    class="text-xl mt-4 font-black whitespace-nowrap uppercase cursor-pointer"
+                >
+                    {{ $category->title }}
+                </div>
+                <div x-show="open" x-cloak class="fcols w-full">
                     @php
                         $countsubcategories += $category->subcategories->count();
                     @endphp
                     @foreach($category->subcategories as $subCategory)
-                        <div class="frows flex-wrap gap-1 border-b w-full">
-                            <div class="font-bold whitespace-nowrap uppercase">{{ $subCategory->title }}</div>
-                            <x-deco.icon icon="hline"/>
-                            @php
-                                $countlinks += $subCategory->links->count();
-                            @endphp
-                            @foreach($subCategory->links as $link)
-                                <a
-                                    class="whitespace-nowrap alink uppercase frows gap-2"
-                                    href="{!! $link->href !!}" target="_blank"
-                                >
-                                    <img
-                                        class="rounded-full shadow"
-                                        width="20"
-                                        height="20"
-                                        src="{{ asset('images/public/links/'.$link->id.'.jpg') }}"
-                                        onerror="this.src='images/public/links/link.svg'"
-                                        alt=""
-                                    />
-                                    <span class="text-xs">{{ $link->title }}</span>
-                                </a>
-                            @endforeach
+                        <div
+                            @class([
+                            'fcols md:frows gap-1 w-full',
+                            'bg-gray-200 bg-opacity-50' => $loop->even
+                            ])
+                        >
+                            <div class="w-full md:w-48 font-bold whitespace-nowrap uppercase truncate">
+                                {{ $subCategory->title }}
+                            </div>
+                            <div class="fcols md:frows flex-wrap gap-1 w-full">
+                                @php
+                                    $countlinks += $subCategory->links->count();
+                                @endphp
+                                @foreach($subCategory->links as $link)
+                                    <a
+                                        class="whitespace-nowrap alink uppercase frows gap-2"
+                                        href="{!! $link->href !!}" target="_blank"
+                                    >
+                                        <img
+                                            class="rounded-full shadow"
+                                            width="20"
+                                            height="20"
+                                            src="{{ asset('images/public/links/'.$link->id.'.jpg') }}"
+                                            onerror="this.src='images/public/links/link.svg'"
+                                            alt=""
+                                        />
+                                        <span class="text-xs">{{ $link->title }}</span>
+                                    </a>
+                                @endforeach
+                            </div>
                         </div>
                     @endforeach
                 </div>
             </div>
         @endforeach
     </div>
-    <div class="frows gap-1 uppercase">
+    <div class="frows gap-2 uppercase">
         <x-deco.icon icon="asset" />
-        {{ $countcategories }}
-        <x-deco.icon icon="hline" />
+        <div>{{ $countcategories }}</div>
+        <x-deco.icon icon="hline" width="w-7 dark:bg-transparent" />
         <x-deco.icon icon="itemwise" />
-        {{ $countsubcategories }}
-        <x-deco.icon icon="hline" />
+        <div>{{ $countsubcategories }}</div>
+        <x-deco.icon icon="hline" width="w-7 dark:bg-transparent" />
         <x-deco.icon icon="link" />
-        {{ $countlinks }}
+        <div>{{ $countlinks }}</div>
     </div>
     <x-app.offline />
 </div>

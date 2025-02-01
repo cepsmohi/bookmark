@@ -6,7 +6,6 @@
             icon="back"
             title="Back"
             width="w-12"
-            color="red"
             round="rounded-xl"
         />
         <x-form.awire
@@ -15,7 +14,6 @@
             icon="plus"
             title="New Category"
             width="w-12"
-            color="green"
             round="rounded-xl"
         />
     </div>
@@ -34,7 +32,7 @@
             <div class="w-full frowb gap-4 cursor-pointer hover:bg-gray-200 group">
                 <div class="frows gap-4">
                     <div class="text-xl w-10 font-black whitespace-nowrap uppercase">
-                        {{ $subcategory->id }}
+                        {{ $subcategory->position }}
                     </div>
                     <div class="text-xl w-44 font-black whitespace-nowrap uppercase">
                         {{ $subcategory->title }}

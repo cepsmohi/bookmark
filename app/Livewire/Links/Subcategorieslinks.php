@@ -22,6 +22,9 @@ class Subcategorieslinks extends Component
     public $title;
 
 
+    #[Rule('nullable|numeric')]
+    public $position;
+
     #[Rule('required|string')]
     public $href;
 
@@ -35,7 +38,7 @@ class Subcategorieslinks extends Component
     public function createLink()
     {
         $this->validate();
-        $newlink = $this->subcategory->createLink($this->title, $this->href);
+        $newlink = $this->subcategory->createLink($this->title, $this->href, $this->position);
         $newlink->updateImage($this->pic);
         session()->flash('alert', 'Link Created');
         return redirect(route('subcategories.links', [$this->category,$this->subcategory]));
@@ -45,12 +48,13 @@ class Subcategorieslinks extends Component
         $this->newlink = Link::find($id);
         $this->title = $this->newlink->title;
         $this->href = $this->newlink->href;
+        $this->position = $this->newlink->position;
         $this->showEditForm = true;
     }
     public function updateLink()
     {
         $this->validate();
-        $this->newlink->updateLink($this->title, $this->href);
+        $this->newlink->updateLink($this->title, $this->href, $this->position);
         $this->newlink->updateImage($this->pic);
         session()->flash('alert', 'Link Updated');
         return redirect(route('subcategories.links', [$this->category,$this->subcategory]));
