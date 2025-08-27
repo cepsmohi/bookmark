@@ -9,7 +9,8 @@ class Subcategory extends Model
     protected $fillable = [
         'category_id',
         'title',
-        'position'
+        'position',
+        'href'
     ];
     public function links(){
         return $this->hasMany(Link::class)->orderBy('position');
