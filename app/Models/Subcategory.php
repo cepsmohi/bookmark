@@ -10,7 +10,8 @@ class Subcategory extends Model
         'category_id',
         'title',
         'position',
-        'href'
+        'href',
+        'pic'
     ];
     public function links(){
         return $this->hasMany(Link::class)->orderBy('position');

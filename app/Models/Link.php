@@ -63,8 +63,11 @@ class Link extends Model
             }
         }
         $image = Image::read($pic)->resize(300, 300);
-        $name = "links/{$this->id}.png";
+        $name = 'links/' . uniqid() . '.png';
         $publicDisk->put($name, $image->encodeByExtension('png'));
-        return $this;
+        $this->update([
+            'pic' => $name
+        ]);
+        return $name;
     }
 }
