@@ -36,13 +36,13 @@ class Link extends Model
     public function updateImage($pic = null)
     {
         if (!$pic) {return;}
-        $previouspic = 'links/'.$this->id.'.jpg';
+        $previouspic = 'links/'.$this->id.'.png';
         $publicDisk = Storage::disk('public');
         if ($previouspic && $publicDisk->exists($previouspic)) {
             $publicDisk->delete($previouspic);
         }
-        $img = Image::read($pic)->toJpeg(75);
-        $name = 'links/'.$this->id.'.jpg';
+        $img = Image::read($pic)->toPng(75);
+        $name = 'links/'.$this->id.'.png';
         Storage::disk('public')->put($name, $img);
     }
 }

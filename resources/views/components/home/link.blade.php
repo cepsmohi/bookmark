@@ -2,22 +2,26 @@
     href="{!! $link->href !!}" target="_blank"
 >
     <div
-        @class([
-            'px-2 py-1 uppercase frows gap-2',
-            'text-gray-300 hover:text-black',
-            'hover:bg-gray-500',
-            'border border-transparent hover:border-gray-500',
-            'rounded-xl overflow-hidden'
-        ])
+        class="relative group fcol"
     >
-        <img
-            class="rounded-full shadow"
-            width="20"
-            height="20"
-            src="{{ asset('images/public/links/'.$link->id.'.jpg') }}"
-            onerror="this.src='images/public/links/link.svg'"
-            alt=""
-        />
-        <span class="text-xs">{{ $link->title }}</span>
+        <div
+            @class([
+                'p-1 uppercase',
+                'hover:bg-gray-500',
+                'rounded-xl'
+            ])
+        >
+            <img
+                class="w-10 h-10 rounded-lg drop-shadow"
+                src="{{ asset('images/public/links/'.$link->id.'.png') }}"
+                onerror="this.src='images/public/links/link.svg'"
+                alt=""
+            />
+        </div>
+        <div class="hidden group-hover:block relative">
+            <div class="absolute -translate-x-1/2 whitespace-nowrap text-[10px] font-bold text-white uppercase">
+                {{ $link->title }}
+            </div>
+        </div>
     </div>
 </a>
