@@ -19,7 +19,7 @@
     </div>
     <div class="frows gap-4 py-4">
         <div class="text-xl font-black whitespace-nowrap uppercase">{{ $category->title }}</div>
-        <x-deco.icon icon="hline"/>
+        <x-deco.icon icon="hline" width="w-7 dark:bg-transparent"/>
         <div class="font-bold whitespace-nowrap uppercase">{{ $subcategory->title }}</div>
     </div>
     <div class="fcols flex-wrap gap-1 w-full">
@@ -38,7 +38,7 @@
                         class="rounded-full shadow"
                         width="40"
                         height="40"
-                        src="{{ asset('images/public/links/'.$link->id.'.jpg') }}"
+                        src="{{ $link->image }}"
                         onerror="this.src='images/public/links/link.svg'"
                         alt=""
                     />

@@ -21,8 +21,9 @@ class Link extends Model
     {
         $extensions = ['jpg', 'png'];
         foreach ($extensions as $ext) {
-            $path = 'images/public/links/' . $this->id.$ext;
-            if (Storage::disk('public')->exists($path)) {
+            $path = 'images/public/links/' . $this->id.'.'.$ext;
+            $spath = 'links/' . $this->id.'.'.$ext;
+            if (Storage::disk('public')->exists($spath)) {
                 return asset($path);
             }
         }
@@ -38,14 +39,19 @@ class Link extends Model
     }
     public function updateImage($pic = null)
     {
-        if (!$pic) {return;}
-        $previouspic = 'links/'.$this->id.'.png';
-        $publicDisk = Storage::disk('public');
-        if ($previouspic && $publicDisk->exists($previouspic)) {
-            $publicDisk->delete($previouspic);
+        if (!$pic) {
+            return null;
         }
-        $img = Image::read($pic)->toPng(75);
-        $name = 'links/'.$this->id.'.png';
-        Storage::disk('public')->put($name, $img);
+        $publicDisk = Storage::disk('public');
+        foreach (['png', 'jpg'] as $ext) {
+            $old = "links/{$this->id}.{$ext}";
+            if ($publicDisk->exists($old)) {
+                $publicDisk->delete($old);
+            }
+        }
+        $image = Image::read($pic)->resize(300, 300);
+        $name = "links/{$this->id}.png";
+        $publicDisk->put($name, $image->encodeByExtension('png'));
+        return $this;
     }
 }
