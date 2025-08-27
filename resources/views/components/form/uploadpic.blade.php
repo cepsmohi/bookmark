@@ -1,9 +1,9 @@
 <div
     x-data
-    class="frow relative mb-7 {{ $width ?? 'w-full'}} {{ $roundcss ?? 'rounded-full' }} overflow-hidden"
+    class="frow relative mb-7 {{ $width ?? 'w-full'}} {{ $roundcss ?? 'rounded-xl' }} overflow-hidden"
 >
     @isset($pic)
-        <img class="{{ $roundcss ?? 'rounded-full' }} w-full  {{ $height ?? 'h-28' }} cursor-pointer shadow-2xl"
+        <img class="{{ $roundcss ?? 'rounded-xl' }} w-full  {{ $height ?? 'h-28' }} cursor-pointer drop-shadow"
              id="imagediv"
              src="{{ $pic->temporaryUrl() }}"
              alt=""
@@ -11,13 +11,13 @@
              wire:loading.remove
              wire:target="{{ $wiretarget }}"
              @click="document.getElementById('pic').click()">
-        <img class="w-28  h-28 {{ $roundcss ?? 'rounded-full' }}"
+        <img class="w-28  h-28 {{ $roundcss ?? 'rounded-xl' }}"
              src="{{ asset('images/icon/loading.gif') }}"
              alt=""
              wire:loading
              wire:target="{{ $wiretarget }}">
     @else
-        <img class="{{ $roundcss ?? 'rounded-full' }} w-full  {{ $height ?? 'h-28' }} cursor-pointer shadow-2xl"
+        <img class="{{ $roundcss ?? 'rounded-xl' }} w-full  {{ $height ?? 'h-28' }} cursor-pointer drop-shadow"
              id="imagediv"
              src="{{ $src }}"
              alt=""

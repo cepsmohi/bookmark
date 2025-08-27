@@ -4,6 +4,6 @@
         icon="edit"
         title="edit"
         color="yellow"
-        width="w-8 h-8"
+        width="w-10 h-10"
     />
 </div>

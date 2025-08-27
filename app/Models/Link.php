@@ -12,13 +12,26 @@ class Link extends Model
         'subcategory_id',
         'title',
         'href',
+        'pic',
         'position'
     ];
+    protected function casts(): array
+    {
+        return [
+            'pic' => 'string',
+            'href' => 'string'
+        ];
+    }
     public function subcategory(){
         return $this->belongsTo(Subcategory::class);
     }
     public function getImageAttribute()
     {
+        if ($this->pic != null){
+            if(Storage::disk('public')->exists($this->pic)){
+                return asset('images/public/'.$this->pic);
+            }
+        }
         $extensions = ['jpg', 'png'];
         foreach ($extensions as $ext) {
             $path = 'images/public/links/' . $this->id.'.'.$ext;
