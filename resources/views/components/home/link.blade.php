@@ -13,7 +13,7 @@
         >
             <img
                 class="w-10 h-10 rounded-lg drop-shadow"
-                src="{{ asset('images/public/links/'.$link->id.'.png') }}"
+                src="{{ $link->image }}"
                 onerror="this.src='images/public/links/link.svg'"
                 alt=""
             />

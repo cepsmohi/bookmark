@@ -19,11 +19,14 @@ class Link extends Model
     }
     public function getImageAttribute()
     {
-        return $this->id
-            ? (Storage::disk('public')->exists('links/'.$this->id.'.jpg')
-                ? asset('images/public/links/' . $this->id.'.jpg')
-                : asset('images/public/links/link.svg'))
-            : asset('images/public/links/link.svg');
+        $extensions = ['jpg', 'png'];
+        foreach ($extensions as $ext) {
+            $path = 'images/public/links/' . $this->id.$ext;
+            if (Storage::disk('public')->exists($path)) {
+                return asset($path);
+            }
+        }
+        return asset('images/public/links/link.svg');
     }
     public function updateLink($title, $href, $position)
     {
