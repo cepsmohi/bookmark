@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Links;
 
+use App\Models\QuickButton;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use App\Models\Link;
@@ -57,6 +58,15 @@ class Subcategorieslinks extends Component
         $this->newlink->updateLink($this->title, $this->href, $this->position);
         $this->newlink->updateImage($this->pic);
         session()->flash('alert', 'Link Updated');
+        return redirect(route('subcategories.links', [$this->category,$this->subcategory]));
+    }
+
+    public function addQuickLink()
+    {
+        QuickButton::create([
+            'link_id' => $this->newlink->id
+        ]);
+        session()->flash('alert', 'Quick Button Added');
         return redirect(route('subcategories.links', [$this->category,$this->subcategory]));
     }
     public function deleteLink()

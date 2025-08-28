@@ -45,6 +45,13 @@
                     tag="Update"
                 />
                 <x-form.awiretag
+                    id="addQuickbtn"
+                    wireclick="addQuickLink"
+                    icon="plus"
+                    color="purple"
+                    tag="Quick"
+                />
+                <x-form.awiretag
                     id="deletebtn"
                     wireclick="deleteLink"
                     icon="trash"

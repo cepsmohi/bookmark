@@ -39,4 +39,10 @@ Route::middleware('auth')->group(function () {
         ->group(function () {
             Route::get('', 'links')->name('');
         });
+    Route::prefix('quicks')
+        ->as('quicks')
+        ->controller(HomeController::class)
+        ->group(function () {
+            Route::get('', 'quicks')->name('');
+        });
 });

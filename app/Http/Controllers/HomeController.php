@@ -29,6 +29,10 @@ class HomeController extends Controller
     }
     public function links()
     {
-        return view('links', compact('category'));
+        return view('links');
+    }
+    public function quicks()
+    {
+        return view('links');
     }
 }

@@ -1,15 +1,20 @@
 <x-master>
     <div class="w-full">
         <x-app.topbar />
-        <x-home.buttons />
-        @if (Route::currentRouteName() == 'categories')
+        @php
+            $routeName = Route::currentRouteName();
+        @endphp
+        @if ($routeName == 'categories')
             <livewire:links.categories />
         @endif
-        @if (Route::currentRouteName() == 'subcategories')
+        @if ($routeName == 'subcategories')
             <livewire:links.subcategories :$category />
         @endif
-        @if (Route::currentRouteName() == 'subcategories.links')
+        @if ($routeName == 'subcategories.links')
             <livewire:links.subcategorieslinks :$category :$subcategory />
+        @endif
+        @if ($routeName == 'quicks')
+            <livewire:quicks.index />
         @endif
     </div>
 </x-master>
