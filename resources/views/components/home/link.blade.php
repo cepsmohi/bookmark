@@ -12,7 +12,7 @@
             ])
         >
             <img
-                class="w-10 h-10 rounded-lg drop-shadow"
+                class="w-20 h-20 rounded-lg drop-shadow"
                 src="{{ $link->image }}"
                 onerror="this.src='images/public/links/link.svg'"
                 alt=""
