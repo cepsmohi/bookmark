@@ -10,4 +10,7 @@
         />
     </div>
     <x-quick.links :$quicks/>
+    @if($showEditForm)
+        <x-quick.editform :$squick />
+    @endif
 </div>

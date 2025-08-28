@@ -1,0 +1,40 @@
+<div class="modalback">
+    <div class="modal"
+         id="linkcreateform"
+         wire:mousedown.outside="$toggle('showEditForm')">
+        <div class="adtr cursor-pointer"
+             id="linkcreateformclosebtn"
+             wire:click="$toggle('showEditForm')">
+            <x-deco.icon icon="times" />
+        </div>
+        <div class="title">Edit Quickie</div>
+        <div class="fcols mt-6 w-full">
+            <div class="frowb gap-4">
+                <div class="w-full">
+                    <x-form.inputwire
+                        name="position"
+                        placeholder="Position"
+                        type="number"
+                        icon="position"
+                    />
+                </div>
+            </div>
+            <div class="frowb gap-4">
+                <x-form.awiretag
+                    id="updatebtn"
+                    wireclick="updateQuick"
+                    icon="refresh"
+                    color="yellow"
+                    tag="Update"
+                />
+                <x-form.awiretag
+                    id="deletebtn"
+                    wireclick="deleteQuick"
+                    icon="trash"
+                    color="red"
+                    tag="Delete"
+                />
+            </div>
+        </div>
+    </div>
+</div>
