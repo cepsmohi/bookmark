@@ -12,14 +12,14 @@
             ])
         >
             <img
-                class="w-20 h-20 rounded-lg drop-shadow"
+                class="w-10 h-10 md:w-20 md:h-20 rounded-lg drop-shadow"
                 src="{{ $link->image }}"
                 onerror="this.src='images/public/links/link.svg'"
                 alt=""
             />
         </div>
         <div class="hidden group-hover:block relative">
-            <div class="absolute -translate-x-1/2 whitespace-nowrap text-[10px] font-bold text-white uppercase">
+            <div class="absolute -translate-x-1/2 whitespace-nowrap text-[7px] md:text-[10px] font-bold text-white uppercase">
                 {{ $link->title }}
             </div>
         </div>
