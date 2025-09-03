@@ -45,7 +45,7 @@
                     tag="Update"
                 />
                 <x-form.awiretag
-                    id="addQuickbtn"
+                    id="addQuickBtn"
                     wireclick="addQuickLink"
                     icon="plus"
                     color="purple"
@@ -57,6 +57,14 @@
                     icon="trash"
                     color="red"
                     tag="Delete"
+                />
+                <x-form.ahreftag
+                    id="linkBtn"
+                    :href="$newlink->href"
+                    target="_blank"
+                    icon="link"
+                    color="indigo"
+                    tag="Link"
                 />
             </div>
         </div>

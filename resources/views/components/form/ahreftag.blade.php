@@ -1,7 +1,16 @@
-<a class="group {{ $width ?? '' }} {{ cssbg($color ?? 'gray') }} frows gap-2 rounded-xl px-2 py-1 drop-shadow"
-   href="{{ $href }}">
-    <x-deco.icon icon="{{ $icon }}" width="w-6 bg-transparent" />
-    <span class="whitespace-nowrap texthover">
+<a
+    class="frows {{ cssbg($color ?? 'theme') }} cursor-pointer gap-2 rounded-full p-1 drop-shadow md:rounded-xl md:px-2 md:py-1"
+    href="{{ $href }}"
+    @isset($target)
+        target="{{ $target }}"
+    @endisset
+>
+    <img
+        class="w-6"
+        src="{{ asset('images/icon/' . $icon . '.svg') }}"
+        alt="{{ $icon }}"
+    >
+    <span class="whitespace-nowrap">
         {{ $tag }}
     </span>
 </a>

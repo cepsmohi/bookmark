@@ -6,6 +6,9 @@
            id="{{ $id ?? randtxt() }}"
            href="{{ $href }}"
            title="{{ $title ?? '' }}"
+           @isset($target)
+               target="{{ $target }}"
+           @endisset
            wire:navigate
         >
             <img
