@@ -2,8 +2,9 @@
     <img
         class="w-12 cursor-pointer rounded-full shadow"
         src="{{ cusr()->image }}"
-        alt="">
-    <div class="menudiv top-1 right-1">
+        alt=""
+    />
+    <div class="menudiv top-14 right-1">
         <x-form.ahreftag
             icon="user"
             tag="Profile"
