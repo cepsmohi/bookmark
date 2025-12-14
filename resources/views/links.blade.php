@@ -1,20 +1,19 @@
 <x-master>
     <div class="w-full">
-        <x-app.topbar />
         @php
             $routeName = Route::currentRouteName();
         @endphp
         @if ($routeName == 'categories')
-            <livewire:links.categories />
+            <livewire:links.categories/>
         @endif
         @if ($routeName == 'subcategories')
-            <livewire:links.subcategories :$category />
+            <livewire:links.subcategories :$category/>
         @endif
         @if ($routeName == 'subcategories.links')
-            <livewire:links.subcategorieslinks :$category :$subcategory />
+            <livewire:links.subcategorieslinks :$category :$subcategory/>
         @endif
         @if ($routeName == 'quicks')
-            <livewire:quicks.index />
+            <livewire:quicks.index/>
         @endif
     </div>
 </x-master>

@@ -2,7 +2,7 @@
     <div class="modal"
          id="linkcreateform"
          wire:mousedown.outside="$toggle('showCreateForm')">
-        <div class="adtr cursor-pointer"
+        <div class="adtr cursor-pointer buttonhover rounded-full"
              id="linkcreateformclosebtn"
              wire:click="$toggle('showCreateForm')">
             <x-deco.icon icon="times" />
@@ -40,7 +40,6 @@
                 id="createbtn"
                 wireclick="createLink"
                 icon="add"
-                color="green"
                 tag="Create"
             />
         </div>

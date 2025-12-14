@@ -1,4 +1,4 @@
-<div class="frowe gap-2 p-2">
+<div class="frowe gap-2">
     <x-form.ahref
         id="returnButton"
         :href="route('categories')"

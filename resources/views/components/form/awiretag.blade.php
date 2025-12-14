@@ -3,7 +3,7 @@
     title="{{ $title ?? '' }}"
 >
     <button
-        class="frows {{ cssbg($color ?? 'theme') }} cursor-pointer gap-2 rounded-full p-1 drop-shadow md:rounded-xl md:px-2 md:py-1"
+        class="p-2 submit-button glass buttonhover bg-gray-500"
         id="{{ $id ?? $wireclick . 'btn' }}"
         wire:click="{{ $wireclick }}"
         wire:loading.attr="disabled"

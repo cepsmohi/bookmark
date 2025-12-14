@@ -1,7 +1,7 @@
 <div class="hidden group-hover:flex frows gap-2 text-xl w-44 font-black whitespace-nowrap uppercase">
     <x-form.ahref
         :href="route('subcategories', $category)"
-        icon="itemwise"
+        icon="links"
         title="Sub Categories"
         color="green"
     />

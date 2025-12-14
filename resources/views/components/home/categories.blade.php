@@ -1,7 +1,7 @@
 <div x-data="{open: false}" class="fcols flex-wrap w-full">
     <div
         @click="open = !open"
-        class="text-xl mt-4 font-black text-blue-300 whitespace-nowrap uppercase cursor-pointer"
+        class="text-xl mt-4 font-black whitespace-nowrap uppercase cursor-pointer"
     >
         {{ $category->title }}
     </div>

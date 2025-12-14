@@ -1,4 +1,4 @@
-<div class="frows flex-wrap gap-4">
+<div class="frow flex-wrap gap-4">
     @php
         use App\Models\QuickButton;
         $quick_buttons = QuickButton::orderBy('position')->get();

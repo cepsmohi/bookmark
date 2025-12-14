@@ -28,7 +28,7 @@
                         icon="position"
                     />
                 </div>
-                <div class="w-40">
+                <div class="w-40 h-40">
                     <x-form.uploadpic
                         :src="$newlink->image"
                         wiretarget="createlink"
@@ -36,21 +36,23 @@
                     />
                 </div>
             </div>
-            <div class="frowb gap-4">
-                <x-form.awiretag
-                    id="updatebtn"
-                    wireclick="updateLink"
-                    icon="refresh"
-                    color="yellow"
-                    tag="Update"
-                />
-                <x-form.awiretag
-                    id="addQuickBtn"
-                    wireclick="addQuickLink"
-                    icon="plus"
-                    color="purple"
-                    tag="Quick"
-                />
+            <div class="fcols gap-2">
+                <div class="w-full frowb gap-4">
+                    <x-form.awiretag
+                        id="updatebtn"
+                        wireclick="updateLink"
+                        icon="refresh"
+                        color="yellow"
+                        tag="Update"
+                    />
+                    <x-form.awiretag
+                        id="addQuickBtn"
+                        wireclick="addQuickLink"
+                        icon="plus"
+                        color="purple"
+                        tag="Quick"
+                    />
+                </div>
                 <x-form.awiretag
                     id="deletebtn"
                     wireclick="deleteLink"
@@ -66,6 +68,7 @@
                     color="indigo"
                     tag="Link"
                 />
+
             </div>
         </div>
     </div>

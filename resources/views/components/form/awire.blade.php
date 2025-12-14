@@ -1,25 +1,42 @@
-<div class="text-base cursor-pointer print:hidden" title="{{ $title ?? '' }}">
-    <div
-        class="frow {{ isset($color) ? cssbg($color) : 'transparent' }} {{ $round ?? 'rounded-xl' }} print:hidden"
-        id="{{ $id ?? $wireclick . 'btn' }}"
-        wire:click="{{ $wireclick }}"
-        wire:loading.attr="disabled"
-        wire:offline.attr="disabled"
-        @if (isset($wireconfirm)) wire:confirm="{{ $wireconfirm }}" @endif
-    >
-        <img
-            class="{{ $width ?? 'w-6 h-6' }}"
-            src="{{ asset('images/icon/' . $icon . '.svg') }}"
-            alt="{{ $icon }}"
+<div
+    id="{{ randtxt() }}"
+    wire:click="{{ $wireclick }}"
+    wire:loading.attr="disabled"
+    wire:offline.attr="disabled"
+    @if (isset($wireconfirm)) wire:confirm="{{ $wireconfirm }}" @endif
+    @if (isset($aclick)) @click="{{ $aclick }}" @endif
+    @class([
+        'block buttonhover cursor-pointer',
+        $rounded ?? 'rounded-xl'
+    ])
+    title="{{ $title ?? '' }}"
+>
+    @isset($icon)
+        <div
             wire:loading.remove
             wire:target="{{ $wireclick }}"
         >
-        <img
-            class="{{ $width ?? 'w-6 h-6' }}"
-            src="{{ asset('images/icon/loading.gif') }}"
-            alt="{{ $icon }}"
+            <x-ui.icon
+                icon="{{ $icon ?? 'icon' }}"
+                padding="p-0"
+
+                :width="$width ?? null"
+            />
+        </div>
+        <div
             wire:loading
             wire:target="{{ $wireclick }}"
         >
-    </div>
+            <img
+                @class([
+                    'overflow-hidden drop-shadow-xl',
+                    $width ?? 'w-7',
+                    $padding ?? 'p-0',
+                    $rounded ?? 'rounded-xl'
+                ])
+                src="{{ asset('images/icon/loading.gif') }}"
+                alt="loading"
+            />
+        </div>
+    @endisset
 </div>

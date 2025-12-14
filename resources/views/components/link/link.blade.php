@@ -1,5 +1,5 @@
 <a
-    class="whitespace-nowrap alink uppercase frows gap-2 group-hover:dark:text-black"
+    class="whitespace-nowrap alink uppercase frows gap-2"
     href="{!! $link->href !!}" target="_blank"
 >
     <div class="w-6">

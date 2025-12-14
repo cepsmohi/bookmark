@@ -1,4 +1,4 @@
-<div class="frowe gap-2 p-2">
+<div class="frowe gap-2 pb-2">
     <x-form.ahref
         id="returnButton"
         :href="route('home')"
@@ -7,8 +7,6 @@
         width="w-12"
         round="rounded-xl"
     />
-</div>
-<div class="frowe gap-2 p-2">
     <x-form.ahref
         id="quickButtons"
         :href="route('quicks')"
