@@ -14,7 +14,7 @@
             <div
                 class="hidden absolute left-0 right-0 -bottom-3 fcol group-hover:block z-50"
             >
-                <div class="text-center whitespace-nowrap uppercase text-xs truncate">
+                <div class="text-center whitespace-nowrap uppercase text-[8px] text-[#00ffff] font-black truncate">
                     {{ $link->title }}
                 </div>
             </div>
