@@ -1,13 +1,25 @@
-<div class="frows w-full gap-2">
+<div
+    @class([
+        'text-base print:hidden',
+        $width ?? ''
+    ])
+    title="{{ $title ?? '' }}"
+>
     <button
-        class="{{ $width ?? '' }} {{ cssbg($color ?? 'gray') }} frows gap-2 rounded-xl drop-shadow px-2 py-1 bg-1st group"
+        @class([
+            'p-2 submit-button buttonhover glass',
+            'bg-green-500'
+        ])
         id="sbtn-{{ $form }}"
         form="{{ $form }}"
         type="submit"
-        value="Submit">
-        <x-deco.icon icon="{{ $icon }}" width="w-6 dark:bg-transparent" />
-        <span class="whitespace-nowrap texthover">
-            {{ $tag }}
-        </span>
+        value="Submit"
+    >
+        <x-ui.icon icon="{{ $icon }}"/>
+        @isset($tag)
+            <span class="whitespace-nowrap">
+                {{ $tag }}
+            </span>
+        @endisset
     </button>
 </div>

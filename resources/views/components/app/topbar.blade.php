@@ -18,7 +18,6 @@
             </a>
         </div>
     </div>
-{{--    <x-menu.user/>--}}
     <div class="frowe gap-2">
         <x-form.ahref
             id="categoryButton"
@@ -30,8 +29,9 @@
         />
         <form id="logoutform" action="{{ route('logout') }}" method="POST">
             @csrf
-            <button class="submit-button glass buttonhover" id="sbtn-logoutform" form="logoutform" type="submit" value="Submit">
-                <x-deco.icon icon="logout" width="w-12"  />
+            <button class="submit-button glass buttonhover" id="sbtn-logoutform" form="logoutform" type="submit"
+                    value="Submit">
+                <x-deco.icon icon="logout" width="w-12"/>
             </button>
         </form>
     </div>

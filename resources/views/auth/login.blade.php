@@ -1,6 +1,6 @@
 <x-master>
     <div class="modalback bg-opacity-10">
-        <x-form.header />
+        <x-form.header/>
         <div class="modal">
             <div class="title mb-7">Login</div>
             <form method="POST" action="{{ route('login') }}" id="loginform">
@@ -25,16 +25,18 @@
                     placeholder="Remember Me"
                     :value="old('remember') ? 'checked' : ''"
                 />
-                <div class="frowb gap-2">
+                <div class="frowb">
                     <x-form.sbtn
                         form="loginform"
                         icon="login"
                         tag="Login"
                     />
-                    <div class="w-full whitespace-nowrap text-xs">
-                        @if (Route::has('password.request'))
-                            <x-form.alink :href="route('password.request')" tag="Forgot Your Password?" />
-                        @endif
+                    <div class="text-xs text-red-400 frowe">
+                        <div class="w-full whitespace-nowrap text-xs">
+                            @if (Route::has('password.request'))
+                                <x-form.alink :href="route('password.request')" tag="Forgot Your Password?"/>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </form>

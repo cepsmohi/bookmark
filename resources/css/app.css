@@ -1,6 +1,7 @@
 @import './toaststyle.css';
 @import './glassbutton.css';
 @import './inputstyle.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -115,6 +116,14 @@ summary::-webkit-details-marker {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.no-scrollbar {
+    scrollbar-width: none; /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
 }
 
 @media print {
@@ -241,15 +250,15 @@ summary::-webkit-details-marker {
     }
 
     .modalback {
-        @apply flex flex-col items-center justify-center gap-2 fixed inset-0 z-50 w-full;
+        @apply flex flex-col items-center justify-center gap-2 fixed inset-0 z-50 w-full bg-gray-700/80 dark:bg-gray-900/80;
     }
 
     .modal {
-        @apply max-w-[320px] relative rounded-xl p-4 border-2 border-gray-500 print:hidden;
+        @apply max-w-[320px] relative rounded-xl p-4 border-2 border-gray-500 bg-gray-200 dark:bg-gray-700 print:hidden;
     }
 
     .bodycss {
-        @apply p-2 w-full min-h-screen relative m-auto sm:px-6 md:px-12 lg:px-20 xl:px-32 bg-gray-200 dark:bg-gray-700 text-black dark:text-white;
+        @apply p-2 w-full min-h-screen relative m-auto sm:px-6 md:px-12 lg:px-20 xl:px-32 bg-gray-200 dark:bg-gray-700;
     }
 
     .alink {
@@ -262,5 +271,25 @@ summary::-webkit-details-marker {
 
     .btncolor {
         @apply bg-gray-300 dark:bg-gray-600 hover:bg-gray-200 hover:dark:bg-gray-500;
+    }
+
+    .onday {
+        @apply fcol w-10 h-10 md:w-16 md:h-16 border border-gray-200 rounded-xl text-lg md:text-2xl text-gray-600 dark:text-gray-300;
+    }
+
+    .offday {
+        @apply fcol w-10 h-10 md:w-16 md:h-16 border border-red-200 rounded-xl text-lg md:text-2xl text-red-600 dark:text-red-300;
+    }
+
+    .currentday {
+        @apply bg-purple-600 text-white;
+    }
+
+    .backdate {
+        @apply text-gray-400 dark:text-gray-500;
+    }
+
+    .hideborder {
+        @apply border-transparent;
     }
 }
