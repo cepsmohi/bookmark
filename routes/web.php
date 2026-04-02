@@ -48,4 +48,8 @@ Route::middleware('auth')->group(function () {
         ->group(function () {
             Route::get('', 'quicks')->name('');
         });
+    Route::get('/optimizeclear', function () {
+        Artisan::call('optimize:clear');
+        return 'Cleared. <a href="/home">Back Home</a>';
+    });
 });
