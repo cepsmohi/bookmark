@@ -8,7 +8,7 @@
                      src="{{ asset('images/logo/logo.svg') }}"
                      alt=""
                 />
-                <div class="font-theme uppercase text-[#f74850]">
+                <div class="font-theme uppercase text-[#f7474f]">
                     @php
                         $words = preg_split('/\s+/', $_ENV['APP_NAME']);
                     @endphp
